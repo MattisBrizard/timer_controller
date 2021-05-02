@@ -1,8 +1,4 @@
-# This file was generated using flutterweb_yaml tool.
-#
-# https://github.com/MattisBrizard/flutterweb_yaml
-
-name: Build and Deploy on GitHub Pages
+name: Test, Build and Deploy on GitHub Pages
 
 on:
   push:
@@ -11,14 +7,23 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Setup flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: 'beta'
+          channel: 'stable'
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test --coverage
+
+      - name: Upload coverage to codecov
+        run: curl -s https://codecov.io/bash | bash
 
       - name: Enable flutter web
         run: flutter config --enable-web
@@ -28,7 +33,7 @@ jobs:
           cd example
           flutter pub get
           flutter build web
-      
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
