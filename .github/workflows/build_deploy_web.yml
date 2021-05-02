@@ -20,12 +20,7 @@ jobs:
         run: flutter analyze lib test
 
       - name: Run tests
-        run: flutter test --no-pub --coverage
-
-      - name: Remove generated files from coverage
-        uses: daalbano/lcov-action@v1
-        with:
-          remove_patterns: freezed
+        run: flutter test --coverage
 
       - name: Upload coverage to codecov
         run: curl -s https://codecov.io/bash | bash
