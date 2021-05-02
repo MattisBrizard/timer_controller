@@ -17,10 +17,13 @@ jobs:
           channel: 'stable'
 
       - name: Analyze
-        run: flutter analyze
+        run: flutter analyze lib test
 
       - name: Run tests
-        run: flutter test --coverage
+        run: flutter test --no-pub --coverage
+
+      - name: Remove generated files from coverage
+        run: lcov --remove coverage/lcov.info '**.freezed.*' -o coverage/lcov.info
 
       - name: Upload coverage to codecov
         run: curl -s https://codecov.io/bash | bash
