@@ -51,13 +51,13 @@ The `TimerValue` represents the state of the timer and has some properties that 
 ```dart
 TimerValue({
     /// The amount of `unit` that remains.
-  @required int remaining,
+  required int remaining,
 
   /// The unit of the timer.
-  @required TimerUnit unit,
+  required TimerUnit unit,
 
   /// The status of the timer.
-  @Default(TimerStatus.initial) TimerStatus status,
+  TimerStatus status = TimerStatus.initial,
 });
 ```
 
@@ -73,10 +73,12 @@ To build a widget depending on the `value` of the `TimerController`, you can use
 TimerControllerBuilder(
   controller: myTimerController,
   builder: (context, value, child) {
-  // return widget here based on myTimerController
+    // return widget here based on myTimerController
   }
  )
 ```
+
+Note: If you want fine-grained control over when the builder function is called you can provide an optional condition to TimerControllerBuilder. The condition takes the previous timer value and current timer value and returns a boolean. If condition returns true, builder will be called with value and the widget will rebuild. If condition returns false, builder will not be called and no rebuild will occur.
 
 ### TimerControllerListener
 
@@ -92,9 +94,11 @@ TimerControllerListener(
 )
 ```
 
+Note: If you want fine-grained control over when the listener function is called you can provide an optional condition to TimerControllerListener. The condition takes the previous timer value and current timer value and returns a boolean. If condition returns true, listener will be called with value. If condition returns false, listener will not be called.
+
 ## Examples
 
-You can find an example of this package heres.
+You can find an example of this package [here](https://mattisbrizard.github.io/timer_controller/#/).
 
 ## Contribution
 
