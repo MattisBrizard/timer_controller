@@ -1,3 +1,7 @@
+[![Build][github_action_badge]][github_action]
+[![Pub][pub_badge]][pub]
+[![Codecov][codecov_badge]][codecov]
+
 # timer_controller
 
 A timer library that provides controls (play, pause, restart, etc) and widgets to consume the timer value.
@@ -98,9 +102,21 @@ Note: If you want fine-grained control over when the listener function is called
 
 ## Examples
 
-You can find an example of this package [here](https://mattisbrizard.github.io/timer_controller/#/).
+You can find an example of this package [here][web_demo].
 
 ## Contribution
 
-If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue](https://github.com/MattisBrizard/timer_controller/issues).
-If you fixed a bug or implemented a feature, please send a pull [request](https://github.com/MattisBrizard/timer_controller/pulls).
+If you find a bug or want a feature, but don't know how to fix/implement it, please fill an [issue][issue].
+If you fixed a bug or implemented a feature, please send a [pull request][pr].
+
+<!-- Links -->
+
+[github_action_badge]: https://github.com/MattisBrizard/timer_controller/workflows/Build%20and%20Deploy/badge.svg
+[github_action]: https://github.com/MattisBrizard/timer_controller/actions
+[pub_badge]: https://img.shields.io/pub/v/timer_controller.svg
+[pub]: https://pub.dartlang.org/packages/timer_controller
+[codecov]: https://codecov.io/gh/MattisBrizard/timer_controller
+[codecov_badge]: https://codecov.io/gh/MattisBrizard/timer_controller/branch/master/graph/badge.svg
+[web_demo]: https://mattisbrizard.github.io/timer_controller/#/
+[issue]: https://github.com/MattisBrizard/timer_controller/issues
+[pr]: https://github.com/MattisBrizard/timer_controller/pulls

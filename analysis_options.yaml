@@ -13,7 +13,7 @@ analyzer:
     missing_return: error
   exclude:
     - 'submodules/**'
-    - 'lib/**/*.graphql.dart'
+    - 'lib/**/*.freezed.dart'
     - 'lib/**/*.g.dart'
     - 'example/**'
 linter:
