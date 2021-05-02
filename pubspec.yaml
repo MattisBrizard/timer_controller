@@ -1,7 +1,6 @@
 name: timer_controller
-description: A timer library that provides controls (play, pause, etc) and widgets to consume the timer value.
+description: A timer library that provides controls (play, pause, restart, etc) and widgets to consume the timer value.
 version: 0.1.0
-author: Mattis Brizard
 homepage: https://github.com/MattisBrizard/timer_controller
 
 environment:
