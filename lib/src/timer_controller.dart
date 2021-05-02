@@ -18,8 +18,11 @@ import 'package:timer_controller/src/timer_value.dart';
 class TimerController extends ValueNotifier<TimerValue> {
   /// Creates a timer controller with `TimerUnit.second` as unit.
   factory TimerController.seconds(int remaining) => TimerController._(
-        remaining,
-        unit: TimerUnit.second,
+        value: TimerValue(
+          remaining: remaining,
+          unit: TimerUnit.second,
+        ),
+        shouldDowngradeUnit: true,
       );
 
   /// Creates a timer controller with `TimerUnit.minute` as unit.
@@ -28,11 +31,13 @@ class TimerController extends ValueNotifier<TimerValue> {
   /// when only 1 minute left.
   factory TimerController.minutes(
     int remaining, {
-    bool shouldDowngradeUnit,
+    bool shouldDowngradeUnit = true,
   }) =>
       TimerController._(
-        remaining,
-        unit: TimerUnit.minute,
+        value: TimerValue(
+          remaining: remaining,
+          unit: TimerUnit.minute,
+        ),
         shouldDowngradeUnit: shouldDowngradeUnit,
       );
 
@@ -42,31 +47,22 @@ class TimerController extends ValueNotifier<TimerValue> {
   /// when only 1 hour and then 1 minute left.
   factory TimerController.hours(
     int remaining, {
-    bool shouldDowngradeUnit,
+    bool shouldDowngradeUnit = true,
   }) =>
       TimerController._(
-        remaining,
-        unit: TimerUnit.hour,
+        value: TimerValue(
+          remaining: remaining,
+          unit: TimerUnit.hour,
+        ),
         shouldDowngradeUnit: shouldDowngradeUnit,
       );
 
-  TimerController._(
-    int remaining, {
-    @required TimerUnit unit,
-    bool shouldDowngradeUnit,
-  })  : assert(remaining != null, 'value must not be null'),
-        assert(remaining > 0, 'value must be greater than 0'),
-        initialValue = TimerValue(
-          remaining: remaining,
-          unit: unit ?? TimerUnit.second,
-        ),
-        shouldDowngradeUnit = shouldDowngradeUnit ?? true,
-        super(
-          TimerValue(
-            remaining: remaining,
-            unit: unit ?? TimerUnit.second,
-          ),
-        );
+  TimerController._({
+    required TimerValue value,
+    required this.shouldDowngradeUnit,
+  })   : assert(value.remaining > 0, 'value.remaining must be greater than 0'),
+        initialValue = value,
+        super(value);
 
   static const _oneHourInMinutes = 60;
   static const _oneMinuteInSeconds = 60;
@@ -78,9 +74,9 @@ class TimerController extends ValueNotifier<TimerValue> {
   TimerStatus get _status => value.status;
   bool get _hasFinished => _status == TimerStatus.finished;
 
-  Timer _timer;
-  DateTime _nextRefresh;
-  Duration _durationToNextRefresh;
+  Timer? _timer;
+  late DateTime _nextRefresh;
+  Duration? _durationToNextRefresh;
 
   @override
   void dispose() {
@@ -158,7 +154,7 @@ class TimerController extends ValueNotifier<TimerValue> {
   }
 
   void _updateTimer() {
-    Duration tickDuration;
+    Duration? tickDuration;
     switch (_unit) {
       case TimerUnit.hour:
         tickDuration = const Duration(hours: 1);

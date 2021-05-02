@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:timer_controller/timer_controller.dart';
 
 void main() {
-  TimerController timerController;
+  late TimerController timerController;
 
   setUp(() {
     timerController = TimerController.seconds(1);

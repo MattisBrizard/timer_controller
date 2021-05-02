@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'timer_value.dart';
 
@@ -9,14 +9,16 @@ part of 'timer_value.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$TimerValueTearOff {
   const _$TimerValueTearOff();
 
-// ignore: unused_element
   _TimerValue call(
-      {@required int remaining,
-      @required TimerUnit unit,
+      {required int remaining,
+      required TimerUnit unit,
       TimerStatus status = TimerStatus.initial}) {
     return _TimerValue(
       remaining: remaining,
@@ -27,21 +29,22 @@ class _$TimerValueTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TimerValue = _$TimerValueTearOff();
 
 /// @nodoc
 mixin _$TimerValue {
   /// The amount of `unit` that remains.
-  int get remaining;
+  int get remaining => throw _privateConstructorUsedError;
 
   /// The unit of the timer.
-  TimerUnit get unit;
+  TimerUnit get unit => throw _privateConstructorUsedError;
 
   /// The status of the timer.
-  TimerStatus get status;
+  TimerStatus get status => throw _privateConstructorUsedError;
 
-  $TimerValueCopyWith<TimerValue> get copyWith;
+  @JsonKey(ignore: true)
+  $TimerValueCopyWith<TimerValue> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,14 +65,23 @@ class _$TimerValueCopyWithImpl<$Res> implements $TimerValueCopyWith<$Res> {
 
   @override
   $Res call({
-    Object remaining = freezed,
-    Object unit = freezed,
-    Object status = freezed,
+    Object? remaining = freezed,
+    Object? unit = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
-      remaining: remaining == freezed ? _value.remaining : remaining as int,
-      unit: unit == freezed ? _value.unit : unit as TimerUnit,
-      status: status == freezed ? _value.status : status as TimerStatus,
+      remaining: remaining == freezed
+          ? _value.remaining
+          : remaining // ignore: cast_nullable_to_non_nullable
+              as int,
+      unit: unit == freezed
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as TimerUnit,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as TimerStatus,
     ));
   }
 }
@@ -95,28 +107,35 @@ class __$TimerValueCopyWithImpl<$Res> extends _$TimerValueCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object remaining = freezed,
-    Object unit = freezed,
-    Object status = freezed,
+    Object? remaining = freezed,
+    Object? unit = freezed,
+    Object? status = freezed,
   }) {
     return _then(_TimerValue(
-      remaining: remaining == freezed ? _value.remaining : remaining as int,
-      unit: unit == freezed ? _value.unit : unit as TimerUnit,
-      status: status == freezed ? _value.status : status as TimerStatus,
+      remaining: remaining == freezed
+          ? _value.remaining
+          : remaining // ignore: cast_nullable_to_non_nullable
+              as int,
+      unit: unit == freezed
+          ? _value.unit
+          : unit // ignore: cast_nullable_to_non_nullable
+              as TimerUnit,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as TimerStatus,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_TimerValue with DiagnosticableTreeMixin implements _TimerValue {
   const _$_TimerValue(
-      {@required this.remaining,
-      @required this.unit,
+      {required this.remaining,
+      required this.unit,
       this.status = TimerStatus.initial})
-      : assert(remaining != null),
-        assert(unit != null),
-        assert(status != null),
-        assert(remaining >= 0, 'remaining should be greater than 0');
+      : assert(remaining >= 0, 'remaining should be greater than 0');
 
   @override
 
@@ -167,6 +186,7 @@ class _$_TimerValue with DiagnosticableTreeMixin implements _TimerValue {
       const DeepCollectionEquality().hash(unit) ^
       const DeepCollectionEquality().hash(status);
 
+  @JsonKey(ignore: true)
   @override
   _$TimerValueCopyWith<_TimerValue> get copyWith =>
       __$TimerValueCopyWithImpl<_TimerValue>(this, _$identity);
@@ -174,22 +194,24 @@ class _$_TimerValue with DiagnosticableTreeMixin implements _TimerValue {
 
 abstract class _TimerValue implements TimerValue {
   const factory _TimerValue(
-      {@required int remaining,
-      @required TimerUnit unit,
+      {required int remaining,
+      required TimerUnit unit,
       TimerStatus status}) = _$_TimerValue;
 
   @override
 
   /// The amount of `unit` that remains.
-  int get remaining;
+  int get remaining => throw _privateConstructorUsedError;
   @override
 
   /// The unit of the timer.
-  TimerUnit get unit;
+  TimerUnit get unit => throw _privateConstructorUsedError;
   @override
 
   /// The status of the timer.
-  TimerStatus get status;
+  TimerStatus get status => throw _privateConstructorUsedError;
   @override
-  _$TimerValueCopyWith<_TimerValue> get copyWith;
+  @JsonKey(ignore: true)
+  _$TimerValueCopyWith<_TimerValue> get copyWith =>
+      throw _privateConstructorUsedError;
 }

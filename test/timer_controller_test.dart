@@ -33,13 +33,6 @@ void main() {
       );
 
       test(
-        'TimerController should throw assertionError when value is null',
-        () {
-          expect(() => TimerController.seconds(null), throwsAssertionError);
-        },
-      );
-
-      test(
         'TimerController should throw assertionError when value is 0',
         () {
           expect(() => TimerController.seconds(0), throwsAssertionError);
@@ -58,12 +51,12 @@ void main() {
   group(
     'TimerController status',
     () {
-      TimerController controller;
+      late TimerController controller;
       setUp(() {
         controller = TimerController.seconds(1);
       });
       tearDown(() {
-        controller?.dispose();
+        controller.dispose();
       });
 
       test(

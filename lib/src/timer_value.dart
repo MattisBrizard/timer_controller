@@ -8,10 +8,10 @@ abstract class TimerValue with _$TimerValue {
   @Assert('remaining >= 0', 'remaining should be greater than 0')
   const factory TimerValue({
     /// The amount of `unit` that remains.
-    @required int remaining,
+    required int remaining,
 
     /// The unit of the timer.
-    @required TimerUnit unit,
+    required TimerUnit unit,
 
     /// The status of the timer.
     @Default(TimerStatus.initial) TimerStatus status,

@@ -9,7 +9,7 @@ import 'package:timer_controller/src/timer_value.dart';
 typedef TimerControllerWidgetBuilder = Widget Function(
   BuildContext context,
   TimerValue value,
-  Widget child,
+  Widget? child,
 );
 
 /// Signature for the `buildWhen` function which takes the previous `value` and
@@ -62,14 +62,12 @@ typedef TimerControllerBuilderCondition = bool Function(
 class TimerControllerBuilder extends StatefulWidget {
 //   /// {@macro timer_controller_builder}
   const TimerControllerBuilder({
-    @required this.builder,
-    @required this.controller,
+    required this.builder,
+    required this.controller,
     this.buildWhen,
     this.child,
-    Key key,
-  })  : assert(builder != null),
-        assert(controller != null),
-        super(key: key);
+    Key? key,
+  }) : super(key: key);
 
   /// The [builder] function which will be invoked on each widget build.
   /// The [builder] takes the `BuildContext` the current `value` and a `child` and
@@ -80,20 +78,20 @@ class TimerControllerBuilder extends StatefulWidget {
   final TimerController controller;
 
   /// {@macro timer_controller_builder_build_when}
-  final TimerControllerBuilderCondition buildWhen;
+  final TimerControllerBuilderCondition? buildWhen;
 
   /// The widget below in the tree.
   ///
   /// For an explanation on the `child` parameter that `builder` receives,
   /// see the "Performance optimizations" section of [AnimatedBuilder].
-  final Widget child;
+  final Widget? child;
 
   @override
   _TimerControllerBuilder createState() => _TimerControllerBuilder();
 }
 
 class _TimerControllerBuilder extends State<TimerControllerBuilder> {
-  TimerValue _value;
+  late TimerValue _value;
 
   @override
   void initState() {

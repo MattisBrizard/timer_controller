@@ -67,15 +67,12 @@ typedef TimerControllerListenerCondition = bool Function(
 class TimerControllerListener extends StatefulWidget {
   /// {@macro timer_controller_listener}
   const TimerControllerListener({
-    Key key,
-    @required this.controller,
-    @required this.listener,
-    @required this.child,
+    Key? key,
+    required this.controller,
+    required this.listener,
+    required this.child,
     this.listenWhen,
-  })  : assert(controller != null),
-        assert(listener != null),
-        assert(child != null),
-        super(key: key);
+  }) : super(key: key);
 
   /// The [controller] whose `value` will be listened to.
   /// Whenever the [controller]'s `value` changes, [listener] will be invoked.
@@ -87,7 +84,7 @@ class TimerControllerListener extends StatefulWidget {
   final TimerControllerWidgetListener listener;
 
   /// {@macro timer_listener_listen_when}
-  final TimerControllerListenerCondition listenWhen;
+  final TimerControllerListenerCondition? listenWhen;
 
   /// The widget below in the tree.
   final Widget child;
@@ -98,7 +95,7 @@ class TimerControllerListener extends StatefulWidget {
 }
 
 class _TimerControllerListenerState extends State<TimerControllerListener> {
-  TimerValue _previousValue;
+  late TimerValue _previousValue;
 
   @override
   void initState() {
@@ -129,7 +126,7 @@ class _TimerControllerListenerState extends State<TimerControllerListener> {
   Widget build(BuildContext context) => widget.child;
 
   void _listener() {
-    final value = widget.controller.value;
+    final TimerValue value = widget.controller.value;
     if (widget.listenWhen?.call(_previousValue, value) ?? true) {
       widget.listener(context, value);
     }
