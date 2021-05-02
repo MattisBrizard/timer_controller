@@ -23,7 +23,9 @@ jobs:
         run: flutter test --no-pub --coverage
 
       - name: Remove generated files from coverage
-        run: lcov --remove coverage/lcov.info '**.freezed.*' -o coverage/lcov.info
+        uses: daalbano/lcov-action@v1
+        with:
+          remove_patterns: freezed
 
       - name: Upload coverage to codecov
         run: curl -s https://codecov.io/bash | bash
