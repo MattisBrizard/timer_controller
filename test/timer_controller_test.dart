@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:timer_controller/src/timer_controller.dart';
 import 'package:timer_controller/timer_controller.dart';
 
 void main() {
