@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'timer_value.dart';
 
@@ -10,26 +12,7 @@ part of 'timer_value.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TimerValueTearOff {
-  const _$TimerValueTearOff();
-
-  _TimerValue call(
-      {required int remaining,
-      required TimerUnit unit,
-      TimerStatus status = TimerStatus.initial}) {
-    return _TimerValue(
-      remaining: remaining,
-      unit: unit,
-      status: status,
-    );
-  }
-}
-
-/// @nodoc
-const $TimerValue = _$TimerValueTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TimerValue {
@@ -87,23 +70,24 @@ class _$TimerValueCopyWithImpl<$Res> implements $TimerValueCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TimerValueCopyWith<$Res> implements $TimerValueCopyWith<$Res> {
-  factory _$TimerValueCopyWith(
-          _TimerValue value, $Res Function(_TimerValue) then) =
-      __$TimerValueCopyWithImpl<$Res>;
+abstract class _$$_TimerValueCopyWith<$Res>
+    implements $TimerValueCopyWith<$Res> {
+  factory _$$_TimerValueCopyWith(
+          _$_TimerValue value, $Res Function(_$_TimerValue) then) =
+      __$$_TimerValueCopyWithImpl<$Res>;
   @override
   $Res call({int remaining, TimerUnit unit, TimerStatus status});
 }
 
 /// @nodoc
-class __$TimerValueCopyWithImpl<$Res> extends _$TimerValueCopyWithImpl<$Res>
-    implements _$TimerValueCopyWith<$Res> {
-  __$TimerValueCopyWithImpl(
-      _TimerValue _value, $Res Function(_TimerValue) _then)
-      : super(_value, (v) => _then(v as _TimerValue));
+class __$$_TimerValueCopyWithImpl<$Res> extends _$TimerValueCopyWithImpl<$Res>
+    implements _$$_TimerValueCopyWith<$Res> {
+  __$$_TimerValueCopyWithImpl(
+      _$_TimerValue _value, $Res Function(_$_TimerValue) _then)
+      : super(_value, (v) => _then(v as _$_TimerValue));
 
   @override
-  _TimerValue get _value => super._value as _TimerValue;
+  _$_TimerValue get _value => super._value as _$_TimerValue;
 
   @override
   $Res call({
@@ -111,7 +95,7 @@ class __$TimerValueCopyWithImpl<$Res> extends _$TimerValueCopyWithImpl<$Res>
     Object? unit = freezed,
     Object? status = freezed,
   }) {
-    return _then(_TimerValue(
+    return _then(_$_TimerValue(
       remaining: remaining == freezed
           ? _value.remaining
           : remaining // ignore: cast_nullable_to_non_nullable
@@ -137,18 +121,17 @@ class _$_TimerValue with DiagnosticableTreeMixin implements _TimerValue {
       this.status = TimerStatus.initial})
       : assert(remaining >= 0, 'remaining should be greater than 0');
 
-  @override
-
   /// The amount of `unit` that remains.
-  final int remaining;
   @override
+  final int remaining;
 
   /// The unit of the timer.
-  final TimerUnit unit;
-  @JsonKey(defaultValue: TimerStatus.initial)
   @override
+  final TimerUnit unit;
 
   /// The status of the timer.
+  @override
+  @JsonKey()
   final TimerStatus status;
 
   @override
@@ -169,49 +152,46 @@ class _$_TimerValue with DiagnosticableTreeMixin implements _TimerValue {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TimerValue &&
-            (identical(other.remaining, remaining) ||
-                const DeepCollectionEquality()
-                    .equals(other.remaining, remaining)) &&
-            (identical(other.unit, unit) ||
-                const DeepCollectionEquality().equals(other.unit, unit)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)));
+        (other.runtimeType == runtimeType &&
+            other is _$_TimerValue &&
+            const DeepCollectionEquality().equals(other.remaining, remaining) &&
+            const DeepCollectionEquality().equals(other.unit, unit) &&
+            const DeepCollectionEquality().equals(other.status, status));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(remaining) ^
-      const DeepCollectionEquality().hash(unit) ^
-      const DeepCollectionEquality().hash(status);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(remaining),
+      const DeepCollectionEquality().hash(unit),
+      const DeepCollectionEquality().hash(status));
 
   @JsonKey(ignore: true)
   @override
-  _$TimerValueCopyWith<_TimerValue> get copyWith =>
-      __$TimerValueCopyWithImpl<_TimerValue>(this, _$identity);
+  _$$_TimerValueCopyWith<_$_TimerValue> get copyWith =>
+      __$$_TimerValueCopyWithImpl<_$_TimerValue>(this, _$identity);
 }
 
 abstract class _TimerValue implements TimerValue {
   const factory _TimerValue(
-      {required int remaining,
-      required TimerUnit unit,
-      TimerStatus status}) = _$_TimerValue;
+      {required final int remaining,
+      required final TimerUnit unit,
+      final TimerStatus status}) = _$_TimerValue;
 
   @override
 
   /// The amount of `unit` that remains.
-  int get remaining => throw _privateConstructorUsedError;
+  int get remaining;
   @override
 
   /// The unit of the timer.
-  TimerUnit get unit => throw _privateConstructorUsedError;
+  TimerUnit get unit;
   @override
 
   /// The status of the timer.
-  TimerStatus get status => throw _privateConstructorUsedError;
+  TimerStatus get status;
   @override
   @JsonKey(ignore: true)
-  _$TimerValueCopyWith<_TimerValue> get copyWith =>
+  _$$_TimerValueCopyWith<_$_TimerValue> get copyWith =>
       throw _privateConstructorUsedError;
 }
