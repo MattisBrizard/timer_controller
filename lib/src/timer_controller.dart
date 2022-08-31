@@ -60,7 +60,7 @@ class TimerController extends ValueNotifier<TimerValue> {
   TimerController._({
     required TimerValue value,
     required this.shouldDowngradeUnit,
-  })   : assert(value.remaining > 0, 'value.remaining must be greater than 0'),
+  })  : assert(value.remaining > 0, 'value.remaining must be greater than 0'),
         initialValue = value,
         super(value);
 
